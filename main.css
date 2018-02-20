@@ -14,7 +14,7 @@ body{
   grid-column: col-start / span 12;
 }
 
-@media(min-width: 750px){
+@media (min-width: 750px){
   .section{
     grid-column: col-start 3 / span 8;
   }
@@ -27,6 +27,43 @@ body{
     text-align: right;
   }
 
+}
+
+@media print{
+  .wrapper{
+    grid-gap: 5px;
+  }
+
+  .section.details-left{
+    grid-column: col-start 1 / span 6;
+  }
+
+  .section.details-right{
+    grid-column: col-start 7 / span 6;
+    text-align: right;
+  }
+
+  .section > ul > li {
+    padding: 0px;
+    list-style: none;
+  }
+
+  .section > ul {
+    margin: 0px;
+  }
+
+  .section > ul > li > ul > li{
+    padding: 0px;
+  }
+
+  .section > h2{
+    font-weight: 400;
+    font-size: 1em;
+    padding: 0px;
+    margin: 5px;
+  }
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
 }
 
 .header-left{
