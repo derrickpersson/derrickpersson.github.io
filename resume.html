@@ -3,6 +3,7 @@
 <head>
   <title>Derrick Persson</title>
   <link rel='stylesheet' type='text/css' href='./main.css'>
+  <link rel='stylesheet' type='text/css' href='./balloon.css'>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
@@ -111,7 +112,11 @@
     <div class="section footer hidden-on-print">
       <a href="javascript:window.print()">Print /</a>
       <a href="./Derrick_Persson_Resume.pdf">Save /</a>
-      <a href="javascript:copyToClipboard('#link-location');" id="share" onClick="copyToClipboard('#link-location')">Share </a>
+      <a href="javascript:copyToClipboard('#link-location');" 
+         id="share" 
+         onClick="copyToClipboard('#link-location')"
+         data-balloon="Link Copied to Clipboard" 
+         data-balloon-pos="up">Share </a>
     </div>
   </div>
   <script>
@@ -121,6 +126,11 @@
       $temp.val($(element).text()).select();
       document.execCommand("copy");
       $temp.remove();
+      $('#share').addClass('balloon')
+      setTimeout(function(){
+        $('#share').removeClass('balloon')
+      }, 1500)
+      
     }
   </script>
 </body>
