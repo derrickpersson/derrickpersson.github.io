@@ -1,9 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Derrick Persson</title>
+  <title>Derrick Persson</title>
+  <link rel='stylesheet' type='text/css' href='./resume.css'>
+  <link rel='stylesheet' type='text/css' href='./balloon.css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-	<a href="./resume.html" onclick="this.target='_blank'"><h1>Resume</h1></a>
+  <p id="link-location">https://derrickpersson.github.io/resume</p>
+  <div class="wrapper">
+    <div class="section">
+      <h1>Derrick Persson</h1>
+      <span class="header-left current-title">Full Stack Developer </span>
+    </div>
+
+    <div class="section details-left">
+      <span class="location">Vancouver, BC </span>
+      <br>
+      <span class=""><a href="mailto:derrickpersson@gmail.com">derrickpersson@gmail.com</a></span>
+      <br>
+      <span class="phonenumber">778 990 2451</span>
+    </div>
+
+    <div class="section details-right">
+      <a href="http://www.derrickpersson.com">derrickpersson.com</a>
+      <br>
+      <a href="github.com/derrickpersson">github.com/derrickpersson</a>
+    </div>
+
+    <div class="section">
+      <h2> Technical Skills </h2>
+      <ul>
+        <li>
+          Node.js, React, Redux, ES6, Express, Ruby, Rails, PostgreSQL, MongoDB, Sass, Git, Salesforce.com, Apex
+        </li>
+      <ul>
+    </div>
+
+    <div class="section">
+      <h2> Side Projects </h2>
+      <ul>
+        <li>
+          <a href="https://github.com/derrickpersson/FriendTrip"><span class="portfolio-project">FriendTrip:</span> Trip planning with friends; built with Node.js, React, Redux, PostgreSQL</a> 
+        </li>
+          <li>
+            <a href="https://github.com/derrickpersson/todoer"><span class="portfolio-project">To Do-er: </span>To do application; built with Node.js, Express, jQuery, PostgreSQL, AWS</a>
+          </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2> Work Experience </h2>
+      <ul class="jobs">
+        <li>
+          <span class="title">Business Systems Manager, S&P Real Estate </span> -
+          <span class="duration"> Apr/2015 - Nov/2017 </span> - Vancouver, BC
+          <ul>
+            <li>
+              Led the adoption and creation of the Corporate CRM system using Salesforce.com
+            </li>
+            <li>
+              Developed improvements to existing Salesforce application for Project Operations
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <span class="title">Operations Manager, Nero Global Tracking </span> -
+          <span class="duration"> Jun/2014 - Jan/2015 </span> - Vancouver, BC
+          <ul>
+            <li>
+              Led the operations team; managed installations & inventory
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <span class="title">Business Project Intern, Plastic Bank </span> -
+          <span class="duration"> Oct/2013 - Mar/2014 </span> - Vancouver, BC
+          <ul>
+            <li>
+              Led the implementation of intranet system & conducted business research
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2> Education </h2>
+      <ul class="education">
+        <li>
+          <span class="institution">2018 Web Development Diploma, Lighthouse Labs </span>
+          <ul>
+            <li>
+              Learned the foundations of web development applications in intensive 3 month program
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span class="institution">2013 B.Sc. in Economics (Honours), University of Victoria </span>
+          <ul>
+            <li>
+              Conducted an analysis of foreign investment in Canada's oil industry using computational models
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="section footer hidden-on-print">
+      <a href="javascript:window.print()">Print /</a>
+      <a href="./Derrick_Persson_Resume.pdf">Save /</a>
+      <a href="javascript:copyToClipboard('#link-location');" 
+         id="share" 
+         onClick="copyToClipboard('#link-location')"
+         data-balloon="Link Copied to Clipboard" 
+         data-balloon-pos="up">Share </a>
+    </div>
+  </div>
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).text()).select();
+      document.execCommand("copy");
+      $temp.remove();
+      $('#share').addClass('balloon')
+      setTimeout(function(){
+        $('#share').removeClass('balloon')
+      }, 1500)
+      
+    }
+  </script>
 </body>
 </html>
