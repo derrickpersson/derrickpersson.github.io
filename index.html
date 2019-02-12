@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Derrick Persson</title>
-  <link rel='stylesheet' type='text/css' href='./resume.css'>
+  <link rel='stylesheet' type='text/css' href='./main.css'>
   <link rel='stylesheet' type='text/css' href='./balloon.css'>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+    rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
+
 <body>
   <p id="link-location">https://derrickpersson.github.io</p>
   <div class="wrapper">
@@ -31,26 +34,36 @@
       <h2> Technical Skills </h2>
       <ul>
         <li>
-          Node.js, React, Redux, ES6, Typescript, Express, Ruby, Rails, PostgreSQL, MongoDB, Sass, HTML, CSS, Git, Salesforce.com
+          Node.js, React, Redux, ES6, Typescript, Express, Ruby, Rails, PostgreSQL, MongoDB, Sass, HTML, CSS, Git,
+          Salesforce.com
         </li>
-      <ul>
+        <ul>
     </div>
 
     <div class="section">
       <h2> Side Projects </h2>
-      <ul>
+      <ul id="side-projects-list">
         <li>
-          <a href="https://github.com/derrickpersson/FriendTrip"><span class="portfolio-project">FriendTrip:</span> Trip planning with friends; built with Node.js, React, Redux, PostgreSQL</a> 
+          <a href="https://github.com/derrickpersson/steesh-server"><span class="portfolio-project">Steesh: </span>Send
+            any article to your Kindle; Chrome Extension, built with Node.js, Puppeteer.js, and MailGun</a>
         </li>
         <li>
-          <a href="https://github.com/derrickpersson/kindleHelper"><span class="portfolio-project">Kindle Helper: </span>Send any article to your Kindle; Chrome Extension, built with Node.js, Phantom.js, and MailGun</a>
+          <a href="https://github.com/derrickpersson/FriendTrip"><span class="portfolio-project">FriendTrip:</span> Trip
+            planning with friends; built with Node.js, React, Redux, PostgreSQL</a>
+        </li>
+        <li class="hidden">
+          <a href="https://github.com/derrickpersson/meteor-accounts"><span class="portfolio-project">Simple Account: </span>User registration & login built with Meteor.js</a>
+        </li>
+        <li class="hidden">
+          <a href="https://github.com/derrickpersson/github-favs"><span class="portfolio-project">Git Hub Favs:</span> Simple REST backend service to cache Git Hub repos, built with Java & Spring</a>
         </li>
       </ul>
+      <a id="show-more-projects" class="show-more" href="javascript:showChildren('side-projects-list', 'show-more-projects')">Show all projects</a>
     </div>
 
     <div class="section">
       <h2> Work Experience </h2>
-      <ul class="jobs">
+      <ul id="positions-list" class="jobs">
         <li>
           <span class="title">Software Developer I, Best Buy Canada </span> -
           <span class="duration"> Mar/2018 - Current </span> - Vancouver, BC
@@ -87,7 +100,32 @@
             </li>
           </ul>
         </li>
+        <li class="hidden">
+            <span class="title">Operations Manager, Nero Global Tracking </span> -
+            <span class="duration"> Jun/2014 - Jan/2015 </span> - Vancouver, BC
+            <ul>
+              <li>
+                Management of installation team, empowering & delegating tasks to ensure quick and effective delivery of services
+              </li>
+              <li>
+                Implemented and refined operating processes & inventory systems to ensure lean operations
+              </li>
+            </ul>
+        </li>
+        <li class="hidden">
+            <span class="title">Project Development Intern, The Plastic Bank </span> -
+            <span class="duration"> Oct/2013 - Jun/2014 </span> - Vancouver, BC
+            <ul>
+              <li>
+                Implemented a shared workspace application to allow for effective communication between all employees
+              </li>
+              <li>
+                Created website analytics reports using Google Analytics
+              </li>
+            </ul>
+        </li>
       </ul>
+      <a id="show-more-positions" class="show-more" href="javascript:showChildren('positions-list', 'show-more-positions')">Show all positions</a>
     </div>
     <div class="section">
       <h2> Education </h2>
@@ -113,11 +151,8 @@
     <div class="section footer hidden-on-print">
       <a href="javascript:window.print()">Print /</a>
       <a href="./Derrick_Persson_Resume.pdf">Save /</a>
-      <a href="javascript:copyToClipboard('#link-location');" 
-         id="share" 
-         onClick="copyToClipboard('#link-location')"
-         data-balloon="Link Copied to Clipboard" 
-         data-balloon-pos="up">Share </a>
+      <a href="javascript:copyToClipboard('#link-location');" id="share" onClick="copyToClipboard('#link-location')"
+        data-balloon="Link Copied to Clipboard" data-balloon-pos="up">Share </a>
     </div>
   </div>
   <script>
@@ -128,11 +163,20 @@
       document.execCommand("copy");
       $temp.remove();
       $('#share').addClass('balloon')
-      setTimeout(function(){
+      setTimeout(function () {
         $('#share').removeClass('balloon')
       }, 1500)
-      
+
+    }
+
+    function showChildren(rootId, linkId) {
+      $("#" + rootId).children(".hidden")
+        .each(function (index, element) {
+          var newElem = $(element).removeClass("hidden");
+        });
+      $("#" + linkId).remove();
     }
   </script>
 </body>
+
 </html>
